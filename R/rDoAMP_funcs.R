@@ -149,7 +149,6 @@ doamp_auto <- function (search_query,
 #' @param R_primer Reverse primer sequence
 #' @return stats summary of the output
 #' @export
-#' @export
 
 doamp_custom <- function (target_fasta,
                           F_primer,
