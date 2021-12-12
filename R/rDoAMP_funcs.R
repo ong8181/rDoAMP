@@ -41,7 +41,7 @@ doamp_auto <- function (search_query,
   # Search data in Entrez
   #-----------------------------------------------------------------#
   if (!random_sampling) n_retidmax <- n_retmax
-  rentrez_search <- entrez_search(db = "nucleotide", term = search_query, retmax = n_retidmax)
+  rentrez_search <- rentrez::entrez_search(db = "nucleotide", term = search_query, retmax = n_retidmax)
   # Random sampling from rentrez_search w/ n_retidmax IDs
   if (random_sampling & length(rentrez_search$ids) >= n_retmax) {
     set.seed(random_sampling_seed)
@@ -54,8 +54,8 @@ doamp_auto <- function (search_query,
   # Retrieve using entrez_fetch() function (rettype = "fasta")
   # Save as FASTA file
   #-----------------------------------------------------------------#
-  entrez_fasta <- entrez_fetch(db = "nucleotide", id = retids,
-                               rettype="fasta", parsed = FALSE)
+  entrez_fasta <- rentrez::entrez_fetch(db = "nucleotide", id = retids,
+                                        rettype="fasta", parsed = FALSE)
   write.table(entrez_fasta, file = sprintf("%s/entrez_fasta.fa", output_dir),
               quote = FALSE, col.names = FALSE, row.names = FALSE)
 
@@ -144,8 +144,6 @@ doamp_auto <- function (search_query,
 #' @title Automatically extract potential amplicons from target sequences
 #' @description \code{doamp_custom} Automatically extract potential amplicons from target sequences
 #'
-#' @importFrom rentrez entrez_search()
-#' @importFrom rentrez entrez_fetch()
 #' @param target_fasta Target sequences
 #' @param F_primer Forward primer sequence
 #' @param R_primer Reverse primer sequence

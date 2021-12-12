@@ -3,6 +3,5 @@
 export(doamp_auto)
 export(doamp_custom)
 export(expand_degenerate_primer)
-importFrom(rDoAMP,"doamp_auto()")
-importFrom(rDoAMP,"doamp_custom()")
-importFrom(rDoAMP,"expand_degenerate_primer()")
+importFrom(rentrez,"entrez_fetch()")
+importFrom(rentrez,"entrez_search()")
