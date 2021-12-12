@@ -1,8 +1,6 @@
 #' @title Automatically download sequences and extract potential amplicons
 #' @description \code{doamp_auto} Automatically download sequences and extract potential amplicons
-#'
-#' @importFrom rentrez entrez_search()
-#' @importFrom rentrez entrez_fetch()
+#' @importFrom utils write.table
 #' @param search_query Search query for Entrez
 #' @param F_primer Forward primer sequence
 #' @param R_primer Reverse primer sequence
@@ -143,7 +141,7 @@ doamp_auto <- function (search_query,
 
 #' @title Automatically extract potential amplicons from target sequences
 #' @description \code{doamp_custom} Automatically extract potential amplicons from target sequences
-#'
+#' @importFrom utils write.table
 #' @param target_fasta Target sequences
 #' @param F_primer Forward primer sequence
 #' @param R_primer Reverse primer sequence
