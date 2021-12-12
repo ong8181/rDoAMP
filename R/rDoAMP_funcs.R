@@ -7,14 +7,6 @@
 #' @param R_primer Reverse primer sequence
 #' @return stats summary of the output
 #' @export
-#' @examples
-#' # doamp_auto(SEARCH_QUERY,
-#'              F_primer = F_PRIMER,
-#'              R_primer = R_PRIMER,
-#'              n_retmax = N_RETMAX,
-#'              n_mismatch = N_MISMATCH,
-#'              output_dir = "DoAMP1_Out",
-#'              overwrite_output_dir = FALSE)
 
 doamp_auto <- function (search_query,
                         F_primer,
@@ -157,14 +149,6 @@ doamp_auto <- function (search_query,
 #' @param R_primer Reverse primer sequence
 #' @return stats summary of the output
 #' @export
-#' @examples
-#' # doamp_custom(SEARCH_QUERY,
-#'                F_primer = F_PRIMER,
-#'                R_primer = R_PRIMER,
-#'                n_retmax = N_RETMAX,
-#'                n_mismatch = N_MISMATCH,
-#'                output_dir = "DoAMP1_Out",
-#'                overwrite_output_dir = FALSE)
 
 doamp_custom <- function (target_fasta,
                           F_primer,

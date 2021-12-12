@@ -6,13 +6,7 @@
 #' @return primer_list_onerow Expanded primer list
 #' @export
 #' @examples
-#' # doamp_auto(SEARCH_QUERY,
-#'              F_primer = F_PRIMER,
-#'              R_primer = R_PRIMER,
-#'              n_retmax = N_RETMAX,
-#'              n_mismatch = N_MISMATCH,
-#'              output_dir = "DoAMP1_Out",
-#'              overwrite_output_dir = FALSE)
+#' # expand_degenerate_primer("ATGCN")
 
 expand_degenerate_primer <- function(input_primer = "ATGCN") {
   all_degenerate_bases <- c("R", "M", "W", "S", "Y", "K", "H", "B", "D", "V", "N")
