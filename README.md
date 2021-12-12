@@ -43,7 +43,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 -  `rentrez` により検索ワードにヒットした配列をダウンロードします。
 - 予め多めの配列の ID を検索し、その中から指定した数の配列をランダムに取得します。
 - プライマー配列にマッチするものを `seqkit amplicon` により抽出します。
-- 指定したプライマーに縮重塩基が含まれていても自動でありえるプライマーの組み合わせをリストアップします。これにより`seqkit amplicon` の `--max-mismatch` も使用可能にします。
+- 指定したプライマーに縮重塩基が含まれていても自動であり得る全てのプライマーの組み合わせをリストアップします。これにより`seqkit amplicon` の `--max-mismatch` も使用可能にします。
 
 #### 引数
 ```r
@@ -71,7 +71,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 
 ## `doamp_custom()`
 - ユーザーが指定した FASTA ファイルからプライマー配列にマッチするものを `seqkit amplicon` により抽出します。
-- 指定したプライマーに縮重塩基が含まれていても自動でありえるプライマーの組み合わせをリストアップします。これにより`seqkit amplicon` の `--max-mismatch` も使用可能にします。
+- 指定したプライマーに縮重塩基が含まれていても自動であり得る全てのプライマーの組み合わせをリストアップします。これにより`seqkit amplicon` の `--max-mismatch` も使用可能にします。
 
 #### 引数
 ```r
