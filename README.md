@@ -23,6 +23,9 @@ devtools::install_github("ong8181/rDoAMP")
 
 ## Quick start
 ```r
+# Load package
+library(rDoAMP); packageVersion("rDoAMP") # 0.1.1, 2021.12.12
+
 # Load primer set
 data(primer_set)
 
