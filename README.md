@@ -28,6 +28,11 @@ Rで以下を入力すると検索ワードでヒットしてダウンロード�
 # Load package
 library(rDoAMP); packageVersion("rDoAMP") # 0.1.1, 2021.12.12
 
+# Display Help
+?doamp_auto
+?doamp_custom
+?expand_degenerate_primer
+
 # Load primer set
 data(primer_set)
 
@@ -119,6 +124,11 @@ devtools::install_github("ong8181/rDoAMP")
 ```r
 # Load package
 library(rDoAMP); packageVersion("rDoAMP") # 0.1.1, 2021.12.12
+
+# Display Help
+?doamp_auto
+?doamp_custom
+?expand_degenerate_primer
 
 # Load primer set
 data(primer_set)
