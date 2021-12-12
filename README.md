@@ -75,5 +75,5 @@ doamp_custom("YOUR_FASTA.fasta",
              n_mismatch = 3)
 ```
 
-## `popular_primer_set`
-- A list of popular primer sets.
+## `primer_set`
+- A list of popular primer sets. Please load by typing `data(primer_set)`.
