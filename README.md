@@ -21,6 +21,19 @@ You can install the development version of rDoAMP from [GitHub](https://github.c
 devtools::install_github("ong8181/rDoAMP")
 ```
 
+## Quick start
+```r
+# Load primer set
+data(primer_set)
+
+# Download sequence data and check whether MiFish primer set can amplify downloaded sequences
+doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
+           F_primer = primer_set$MiFish_U$forward,   # MiFish-U-F
+           R_primer = primer_set$MiFish_U$reverse,   # MiFish-U-R
+           n_mismatch = 3)
+```
+
+
 ## `doamp_auto()`
 - Download sequences using `rentrez` package of R.
 - Allow random sampling from searched sequence IDs.
