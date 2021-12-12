@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするための関数です。`rentrez`（https://github.com/ropensci/rentrez）を使って興味ある配列を Entrez（https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html）からダウンロードし、`seqkit`（https://bioinf.shenwei.me/seqkit/）を用いて指定したプライマーで増幅しうるかどうかチェックします。
+興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするための関数です。`rentrez` (https://github.com/ropensci/rentrez) を使って興味ある配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit` (https://bioinf.shenwei.me/seqkit/) を用いて指定したプライマーで増幅しうるかどうかチェックします。
 
 (`seqkit` の機能の一つ、`seqkit amplicon` を使用しやすくしたラッパー関数です)
 
