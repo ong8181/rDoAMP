@@ -1,0 +1,13 @@
+Package: rDoAMP
+Type: Package
+Title: Extracting amplicons from target sequences using a user-specified primer set
+Version: 0.1.1
+Author: Masayuki Ushio
+Maintainer: Masayuki Ushio <ong8181@gmail.com>
+Description: rDoAMP provides convenient wrapper functions to use "seqkit amplicon."
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: rentrez
