@@ -1,7 +1,6 @@
 #' @title Automatically expand degenerated primer
 #' @description \code{expand_degenerate_primer} Automatically expand degenerated primer
 #'
-#' @importFrom rDoAMP expand_degenerate_primer()
 #' @param input_primer Primer sequences
 #' @return primer_list_onerow Expanded primer list
 #' @export
