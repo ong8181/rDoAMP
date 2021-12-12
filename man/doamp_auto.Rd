@@ -25,9 +25,24 @@ doamp_auto(
 \item{F_primer}{Forward primer sequence}
 
 \item{R_primer}{Reverse primer sequence}
-}
-\value{
-stats summary of the output
+
+\item{n_retmax}{The maximum number of sequences collected from Entrez}
+
+\item{n_mismatch}{The maximum number of primer-template mismatches allowed}
+
+\item{output_dir}{Output directory name}
+
+\item{random_sampling}{Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected}
+
+\item{random_sampling_seed}{Random number seed for random_sampling}
+
+\item{n_retidmax}{The maximum number of IDs collected from Entrez}
+
+\item{save_parameter}{Logical. If TRUE, parameters used in the analysis saved}
+
+\item{save_stat}{Logical. If TRUE, summary of the analysis saved}
+
+\item{overwrite_output_dir}{Logical. If TRUE, overwrite the contents of output directory.}
 }
 \description{
 \code{doamp_auto} Automatically download sequences and extract potential amplicons

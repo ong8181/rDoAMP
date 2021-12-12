@@ -4,7 +4,15 @@
 #' @param search_query Search query for Entrez
 #' @param F_primer Forward primer sequence
 #' @param R_primer Reverse primer sequence
-#' @return stats summary of the output
+#' @param n_retmax The maximum number of sequences collected from Entrez
+#' @param n_mismatch The maximum number of primer-template mismatches allowed
+#' @param output_dir Output directory name
+#' @param random_sampling Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected
+#' @param random_sampling_seed Random number seed for random_sampling
+#' @param n_retidmax The maximum number of IDs collected from Entrez
+#' @param save_parameter Logical. If TRUE, parameters used in the analysis saved
+#' @param save_stat Logical. If TRUE, summary of the analysis saved
+#' @param overwrite_output_dir Logical. If TRUE, overwrite the contents of output directory.
 #' @export
 
 doamp_auto <- function (search_query,
@@ -142,10 +150,14 @@ doamp_auto <- function (search_query,
 #' @title Automatically extract potential amplicons from target sequences
 #' @description \code{doamp_custom} Automatically extract potential amplicons from target sequences
 #' @importFrom utils write.table
-#' @param target_fasta Target sequences
+#' @param target_fasta FASTA file that contains target sequences
 #' @param F_primer Forward primer sequence
 #' @param R_primer Reverse primer sequence
-#' @return stats summary of the output
+#' @param n_mismatch The maximum number of primer-template mismatches allowed
+#' @param output_dir Output directory name
+#' @param save_parameter Logical. If TRUE, parameters used in the analysis saved
+#' @param save_stat Logical. If TRUE, summary of the analysis saved
+#' @param overwrite_output_dir Logical. If TRUE, overwrite the contents of output directory.
 #' @export
 
 doamp_custom <- function (target_fasta,

@@ -16,14 +16,21 @@ doamp_custom(
 )
 }
 \arguments{
-\item{target_fasta}{Target sequences}
+\item{target_fasta}{FASTA file that contains target sequences}
 
 \item{F_primer}{Forward primer sequence}
 
 \item{R_primer}{Reverse primer sequence}
-}
-\value{
-stats summary of the output
+
+\item{n_mismatch}{The maximum number of primer-template mismatches allowed}
+
+\item{output_dir}{Output directory name}
+
+\item{save_parameter}{Logical. If TRUE, parameters used in the analysis saved}
+
+\item{save_stat}{Logical. If TRUE, summary of the analysis saved}
+
+\item{overwrite_output_dir}{Logical. If TRUE, overwrite the contents of output directory.}
 }
 \description{
 \code{doamp_custom} Automatically extract potential amplicons from target sequences
