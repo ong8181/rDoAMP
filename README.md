@@ -4,9 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするための関数です。`rentrez` (https://github.com/ropensci/rentrez) を使って興味ある配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit` (https://bioinf.shenwei.me/seqkit/) を用いて指定したプライマーで増幅しうるかどうかチェックします。
-
-(`seqkit` の機能の一つ、`seqkit amplicon` を使用しやすくしたラッパー関数です)
+興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするためのパッケージです。`rentrez` (https://github.com/ropensci/rentrez) を使って興味ある配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit` (https://bioinf.shenwei.me/seqkit/) を用いて指定したプライマーで増幅しうるかどうかチェックします。
 
 ## 事前にインストールする必要があるパッケージ
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
@@ -42,6 +40,14 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
            R_primer = primer_set$MiFish_U$reverse,   # MiFish-U-R
            n_mismatch = 3)
 ```
+
+#### 出力フォルダに保存されるファイル
+- `download.fa` (`doamp_auto()` 使用時) : 指定した検索ワードによりダウンロードされた配列データ
+- `custom_db.fa` (`doamp_custom()` 使用時) : ユーザーが指定した増幅するかどうか調べてたい配列データ
+- `amplified.fa`: プライマーとマッチした配列
+- `parameter_list.txt`: 解析に使用したパラメータリスト
+- `expanded_primer_list.tsv` (縮重プライマー使用時) : あり得るプライマーの組み合わせリスト 
+- `stat.tsv`: ダウンロードした配列数、プライマーとマッチした配列数などの統計情報
 
 
 ## `doamp_auto()`
@@ -139,6 +145,14 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
            R_primer = primer_set$MiFish_U$reverse,   # MiFish-U-R
            n_mismatch = 3)
 ```
+
+#### Output files
+- `download.fa` (only for `doamp_auto()`) : Downloaded sequence data using a user-specified search query
+- `custom_db.fa` (only for `doamp_custom()`) : User-specified sequence data to be checked by `seqkit amplicon`
+- `amplified.fa`: Sequence data that could be amplified by a specified primer set
+- `parameter_list.txt`: Parameter list used in the analysis
+- `expanded_primer_list.tsv` (only for degenerated primers) : A list of primer combinations
+- `stat.tsv`: Statistical information such as the numbers of downloaded and amplified sequences
 
 
 ## `doamp_auto()`
