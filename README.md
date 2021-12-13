@@ -36,8 +36,8 @@ data(primer_set)
 
 # Download sequence data and check whether MiFish primer set can amplify downloaded sequences
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
-           F_primer = primer_set$MiFish_U$forward,   # MiFish-U-F
-           R_primer = primer_set$MiFish_U$reverse,   # MiFish-U-R
+           F_primer = primer_set$Animal12S_MiFish_U$forward,   # MiFish-U-F
+           R_primer = primer_set$Animal12S_MiFish_U$reverse,   # MiFish-U-R
            n_mismatch = 3)
 ```
 
@@ -164,8 +164,8 @@ data(primer_set)
 
 # Download sequence data and check whether MiFish primer set can amplify downloaded sequences
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
-           F_primer = primer_set$MiFish_U$forward,   # MiFish-U-F
-           R_primer = primer_set$MiFish_U$reverse,   # MiFish-U-R
+           F_primer = primer_set$Animal12S_MiFish_U$forward,   # MiFish-U-F
+           R_primer = primer_set$Animal12S_MiFish_U$reverse,   # MiFish-U-R
            n_mismatch = 3)
 ```
 
