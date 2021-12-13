@@ -50,6 +50,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 - `stat.tsv`: ダウンロードした配列数、プライマーとマッチした配列数などの統計情報
 
 
+# 詳しいマニュアル
 ## `doamp_auto()`
 -  `rentrez` により検索ワードにヒットした配列をダウンロードします。
 - 予め多めの配列の ID を検索し、その中から指定した数の配列をランダムに取得します。
@@ -177,6 +178,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 - `stat.tsv`: Statistical information such as the numbers of downloaded and amplified sequences
 
 
+# Detailed manual
 ## `doamp_auto()`
 - Download sequences using `rentrez` package of R.
 - Allow random sampling from searched sequence IDs.
