@@ -72,6 +72,19 @@ doamp_auto(search_query,
            overwrite_output_dir = FALSE)
 ```
 
+- `search_query` : データベースの検索ワード ("Trachurus AND mitochondrion AND 1000:20000[SLEN]" など)
+- `F_primer` : フォワードプライマー配列
+- `R_primer`: リバースプライマー配列
+- `n_retmax`: 取得する配列の最大数 (v0.1.1 では大きすぎる配列数はエラーとなります)
+- `n_mismatch` : 許容するプライマー - 鋳型間のミスマッチの数
+- `output_dir`: 出力フォルダの名前。デフォルトは "rDoAMP_Out"。
+- `random_sampling`: 多めの配列 ID を取得して、その中からランダムに配列を取得するかどうか
+- `random_sampling_seed`: ランダムサンプリングのシード値
+- `n_retidmax`: 取得する配列 ID の数。デフォルトでは取得予定の配列数の10倍の ID を取得し、その中からランダムに配列をダウンロード。
+- `save_parameter`: 解析に使用したパラメータを保存するかどうか
+- `save_stat`: 解析結果のサマリーを保存するかどうか
+- `overwrite_output_dir`: 出力フォルダがすでに存在していた場合にフォルダを上書きするかどうか。上書きする場合は既存フォルダの中身は消去されるので注意。
+
 #### 基本的な使用方法
 ```r
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
@@ -95,6 +108,15 @@ doamp_custom(target_fasta,
              save_stat = TRUE,
              overwrite_output_dir = FALSE) 
 ```
+
+- `farget_fasta` : ユーザ指定の配列データ
+- `F_primer` : フォワードプライマー配列
+- `R_primer`: リバースプライマー配列
+- `n_mismatch` : 許容するプライマー - 鋳型間のミスマッチの数
+- `output_dir`: 出力フォルダの名前。デフォルトは "rDoAMP_Out"。
+- `save_parameter`: 解析に使用したパラメータを保存するかどうか
+- `save_stat`: 解析結果のサマリーを保存するかどうか
+- `overwrite_output_dir`: 出力フォルダがすでに存在していた場合にフォルダを上書きするかどうか。上書きする場合は既存フォルダの中身は消去されるので注意。
 
 #### 基本的な使用方法
 ```r
@@ -177,6 +199,20 @@ doamp_auto(search_query,
            overwrite_output_dir = FALSE)
 ```
 
+- `search_query` : Search query for Entrez
+- `F_primer` : Forward primer sequence
+- `R_primer`: Reverse primer sequence
+- `n_retmax`: The maximum number of sequences retrieved from Entrez
+- `n_mismatch` : The maximum number of primer-template mismatches allowed
+- `output_dir`: Output directory name
+- `random_sampling`: Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected
+- `random_sampling_seed`: Random number seed for random_sampling
+- `n_retidmax`: The maximum number of IDs collected from Entrez. Among the IDs, `n_retmax` sequences are retrieved 
+- `save_parameter`: Logical. If TRUE, parameters used in the analysis saved
+- `save_stat`: Logical. If TRUE, summary of the analysis saved
+- `overwrite_output_dir`: Logical. If TRUE, overwrite the contents of output directory (the original contents of the output file will be deleted)
+
+
 #### Basic usage
 ```r
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
@@ -200,6 +236,16 @@ doamp_custom(target_fasta,
              save_stat = TRUE,
              overwrite_output_dir = FALSE) 
 ```
+
+- `target_fasta` : FASTA file that contains target sequences
+- `F_primer` : Forward primer sequence
+- `R_primer`: Reverse primer sequence
+- `n_mismatch` : The maximum number of primer-template mismatches allowed
+- `output_dir`: Output directory name
+- `save_parameter`: Logical. If TRUE, parameters used in the analysis saved
+- `save_stat`: Logical. If TRUE, summary of the analysis saved
+- `overwrite_output_dir`: Logical. If TRUE, overwrite the contents of output directory (the original contents of the output file will be deleted)
+
 
 #### Basic usage
 ```r
