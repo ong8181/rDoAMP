@@ -1,5 +1,5 @@
 
-# rDoAMP v0.1.1
+# rDoAMP v0.1.2
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -12,7 +12,7 @@
 
 ## インストール
 
-Rコンソール内で以下のコードを入力するとインストールできます。
+β 版はRコンソール内で以下のコードを入力するとインストールできます。
 
 ``` r
 # install.packages("devtools")
