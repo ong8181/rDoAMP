@@ -24,7 +24,7 @@ Rで以下を入力すると検索ワードでヒットしてダウンロード�
 
 ```r
 # Load package
-library(rDoAMP); packageVersion("rDoAMP") # 0.1.1, 2021.12.12
+library(rDoAMP); packageVersion("rDoAMP")
 
 # Display Help
 ?doamp_auto
@@ -152,7 +152,7 @@ devtools::install_github("ong8181/rDoAMP")
 ## Quick start
 ```r
 # Load package
-library(rDoAMP); packageVersion("rDoAMP") # 0.1.1, 2021.12.12
+library(rDoAMP); packageVersion("rDoAMP")
 
 # Display Help
 ?doamp_auto
