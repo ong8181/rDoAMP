@@ -34,7 +34,10 @@ doamp_auto <- function (search_query,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-    if(length(list.files(sprintf("%s", output_dir))) > 0) file.remove(sprintf("%s/*", output_dir))
+    if(length(list.files(sprintf("%s", output_dir))) > 0) {
+      previous_files <- dir(path = output_dir, pattern = "*.*")
+      file.remove(previous_files)
+    }
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -196,7 +199,10 @@ doamp_custom <- function (target_fasta,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-      if(length(list.files(sprintf("%s", output_dir))) > 0) file.remove(sprintf("%s/*", output_dir))
+      if(length(list.files(sprintf("%s", output_dir))) > 0) {
+        previous_files <- dir(path = output_dir, pattern = "*.*")
+        file.remove(previous_files)
+      }
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
