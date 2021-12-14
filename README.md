@@ -16,6 +16,7 @@
     - Windows
       1. seqkit_windows_*.exe.tar.gz を解凍
       2. `seqkit.exe` を `C:\WINDOWS\system32` にコピー
+      3. `seqkit version` でバージョン確認
 
 ## 依存パッケージ
 - `rentrez` (https://github.com/ropensci/rentrez)
