@@ -34,11 +34,16 @@ doamp_auto <- function (search_query,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-    #if (Sys.info()["sysname"] == "Windows") {
-    #  if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*.*", output_dir)) # Clean files in output_dir
-    #} else {
-    #  if(length(list.files(sprintf("%s/", output_dir))) > 0) system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
-    #}
+    if (Sys.info()["sysname"] == "Windows") {
+      if(length(list.files(sprintf("%s", output_dir))) > 0) {
+        shell_command_del <- sprintf("del %s¥*", output_dir)
+        shell(shell_command_del) # Clean files in output_dir
+      }
+    } else {
+      if(length(list.files(sprintf("%s/", output_dir))) > 0) {
+        system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
+      }
+    }
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -75,7 +80,8 @@ doamp_auto <- function (search_query,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    #shell(sprintf("del %s¥entrez_fasta.fa", output_dir))
+    shell_command_tmp <- sprintf("del %s¥entrez_fasta.fa", output_dir)
+    shell(shell_command_tmp)
   } else {
     system(shell_command1)
     system(sprintf("rm %s/entrez_fasta.fa", output_dir))
@@ -149,10 +155,13 @@ doamp_auto <- function (search_query,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      shell(sprintf("seqkit stats -T %s¥*.fa > %s¥stat.tsv", output_dir, output_dir))
-      shell(sprintf("more %s¥stat.tsv", output_dir))
+      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa > %s¥stat.tsv", output_dir, output_dir)
+      shell_command4 <- sprintf("more %s¥stat.tsv", output_dir)
+      shell(shell_command3)
+      shell(shell_command4)
     } else {
-      shell(sprintf("seqkit stats -T %s¥*.fa", output_dir))
+      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa", output_dir)
+      shell(shell_command3)
     }
   } else {
     if (save_stat) {
@@ -199,11 +208,16 @@ doamp_custom <- function (target_fasta,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-    #if (Sys.info()["sysname"] == "Windows") {
-    #  if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*.*", output_dir)) # Clean files in output_dir
-    #} else {
-    #  if(length(list.files(sprintf("%s/", output_dir))) > 0) system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
-    #}
+    if (Sys.info()["sysname"] == "Windows") {
+      if(length(list.files(sprintf("%s", output_dir))) > 0) {
+        shell_command_del <- sprintf("del %s¥*", output_dir)
+        shell(shell_command_del) # Clean files in output_dir
+      }
+    } else {
+      if(length(list.files(sprintf("%s/", output_dir))) > 0) {
+        system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
+      }
+    }
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -225,7 +239,8 @@ doamp_custom <- function (target_fasta,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    #shell(sprintf("del %s¥custom_db0.fa", output_dir))
+    shell_command_tmp <- sprintf("del %s¥custom_db0.fa", output_dir)
+    shell(shell_command_tmp)
   } else {
     system(shell_command1)
     system(sprintf("rm %s/custom_db0.fa", output_dir))
@@ -293,10 +308,13 @@ doamp_custom <- function (target_fasta,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      shell(sprintf("seqkit stats -T %s¥*.fa > %s/stat.tsv", output_dir, output_dir))
-      shell(sprintf("more %s¥stat.tsv", output_dir))
+      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa > %s¥stat.tsv", output_dir, output_dir)
+      shell_command4 <- sprintf("more %s¥stat.tsv", output_dir)
+      shell(shell_command3)
+      shell(shell_command4)
     } else {
-      shell(sprintf("seqkit stats -T %s¥*.fa", output_dir))
+      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa", output_dir)
+      shell(shell_command3)
     }
   } else {
     if (save_stat) {
