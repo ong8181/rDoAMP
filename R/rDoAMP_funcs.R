@@ -228,9 +228,7 @@ doamp_custom <- function (target_fasta,
   }
   # Copy target fasta to output_dir
   if (Sys.info()["sysname"] == "Windows") {
-    setwd(sprintf("%s", output_dir))
-    shell(sprintf("copy ..¥%s custom_db0.fa", target_fasta))
-    setwd("..")
+    file.copy(sprintf("%s %s/custom_db0.fa", target_fasta, output_dir))
   } else {
     system(sprintf("cp %s %s/custom_db0.fa", target_fasta, output_dir))
   }
