@@ -36,8 +36,9 @@ doamp_auto <- function (search_query,
     dir.create(output_dir, showWarnings = TRUE)
     if (Sys.info()["sysname"] == "Windows") {
       if(length(list.files(sprintf("%s", output_dir))) > 0) {
-        shell_command_del <- sprintf("del %s¥*", output_dir)
-        shell(shell_command_del) # Clean files in output_dir
+        setwd(sprintf("%s", output_dir))
+        shell("del *.*") # Clean files in output_dir
+        setwd("..")
       }
     } else {
       if(length(list.files(sprintf("%s/", output_dir))) > 0) {
@@ -80,8 +81,8 @@ doamp_auto <- function (search_query,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    shell_command_tmp <- sprintf("del %s¥entrez_fasta.fa", output_dir)
-    shell(shell_command_tmp)
+    setwd(sprintf("%s", output_dir))
+    shell("del entrez_fasta.fa"); setwd("..")
   } else {
     system(shell_command1)
     system(sprintf("rm %s/entrez_fasta.fa", output_dir))
@@ -155,13 +156,12 @@ doamp_auto <- function (search_query,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa > %s¥stat.tsv", output_dir, output_dir)
-      shell_command4 <- sprintf("more %s¥stat.tsv", output_dir)
-      shell(shell_command3)
-      shell(shell_command4)
+      setwd(sprintf("%s", output_folder))
+      shell("seqkit stats -T *.fa > stat.tsv")
+      shell("more stat.tsv"); setwd("..")
     } else {
-      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa", output_dir)
-      shell(shell_command3)
+      setwd(sprintf("%s", output_folder))
+      shell("seqkit stats -T *.fa"); setwd("..")
     }
   } else {
     if (save_stat) {
@@ -210,8 +210,9 @@ doamp_custom <- function (target_fasta,
     dir.create(output_dir, showWarnings = TRUE)
     if (Sys.info()["sysname"] == "Windows") {
       if(length(list.files(sprintf("%s", output_dir))) > 0) {
-        shell_command_del <- sprintf("del %s¥*", output_dir)
-        shell(shell_command_del) # Clean files in output_dir
+        setwd(sprintf("%s", output_dir))
+        shell("del *.*") # Clean files in output_dir
+        setwd("..")
       }
     } else {
       if(length(list.files(sprintf("%s/", output_dir))) > 0) {
@@ -227,7 +228,9 @@ doamp_custom <- function (target_fasta,
   }
   # Copy target fasta to output_dir
   if (Sys.info()["sysname"] == "Windows") {
-    shell(sprintf("copy %s %s¥custom_db0.fa", target_fasta, output_dir))
+    setwd(sprintf("%s", output_dir))
+    shell(sprintf("copy ..¥%s custom_db0.fa", target_fasta))
+    setwd("..")
   } else {
     system(sprintf("cp %s %s/custom_db0.fa", target_fasta, output_dir))
   }
@@ -239,8 +242,8 @@ doamp_custom <- function (target_fasta,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    shell_command_tmp <- sprintf("del %s¥custom_db0.fa", output_dir)
-    shell(shell_command_tmp)
+    setwd(sprintf("%s", output_dir))
+    shell("del custom_db0.fa"); setwd("..")
   } else {
     system(shell_command1)
     system(sprintf("rm %s/custom_db0.fa", output_dir))
@@ -308,13 +311,12 @@ doamp_custom <- function (target_fasta,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa > %s¥stat.tsv", output_dir, output_dir)
-      shell_command4 <- sprintf("more %s¥stat.tsv", output_dir)
-      shell(shell_command3)
-      shell(shell_command4)
+      setwd(sprintf("%s", output_folder))
+      shell("seqkit stats -T *.fa > stat.tsv")
+      shell("more stat.tsv"); setwd("..")
     } else {
-      shell_command3 <- sprintf("seqkit stats -T %s¥*.fa", output_dir)
-      shell(shell_command3)
+      setwd(sprintf("%s", output_folder))
+      shell("seqkit stats -T *.fa"); setwd("..")
     }
   } else {
     if (save_stat) {
