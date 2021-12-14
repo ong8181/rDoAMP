@@ -188,6 +188,7 @@ doamp_custom <- function (target_fasta,
   # Creat output directory
   #-----------------------------------------------------------------#
   time_start <- proc.time() # Measure elapsed time
+
   # Check target.fasta file
   if(!file.exists(target_fasta)) stop("Your FASTA file does not exit!")
 
@@ -208,6 +209,8 @@ doamp_custom <- function (target_fasta,
       dir.create(output_dir)
     }
   }
+  # Check target.fasta file
+  if(!file.exists(target_fasta)) stop("Your FASTA file does not exit!")
   # Copy target fasta to output_dir
   file.copy(target_fasta, sprintf("%s/custom_db0.fa", output_dir))
 
