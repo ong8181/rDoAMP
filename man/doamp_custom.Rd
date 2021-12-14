@@ -16,15 +16,15 @@ doamp_custom(
 )
 }
 \arguments{
-\item{target_fasta}{FASTA file that contains target sequences}
+\item{target_fasta}{Character. Path to a FASTA file that contains target sequences}
 
-\item{F_primer}{Forward primer sequence}
+\item{F_primer}{Character. Forward primer sequence}
 
-\item{R_primer}{Reverse primer sequence}
+\item{R_primer}{Character. Reverse primer sequence}
 
-\item{n_mismatch}{The maximum number of primer-template mismatches allowed}
+\item{n_mismatch}{Numeric. The maximum number of primer-template mismatches allowed}
 
-\item{output_dir}{Output directory name}
+\item{output_dir}{Character. Output directory name}
 
 \item{save_parameter}{Logical. If TRUE, parameters used in the analysis saved}
 

@@ -1,15 +1,15 @@
 #' @title Automatically download sequences and extract potential amplicons
 #' @description \code{doamp_auto} Automatically download sequences and extract potential amplicons
 #' @importFrom utils write.table
-#' @param search_query Search query for Entrez
-#' @param F_primer Forward primer sequence
-#' @param R_primer Reverse primer sequence
-#' @param n_retmax The maximum number of sequences collected from Entrez
-#' @param n_mismatch The maximum number of primer-template mismatches allowed
-#' @param output_dir Output directory name
+#' @param search_query Character. Search query for Entrez
+#' @param F_primer Character. Forward primer sequence
+#' @param R_primer Character. Reverse primer sequence
+#' @param n_retmax Numeric. The maximum number of sequences collected from Entrez
+#' @param n_retidmax Numeric. The maximum number of IDs collected from Entrez. Default is 10. If random_sampling = TRUE, n_retidmax IDs will be collected and then n_retmax sequences will be downloaded.
+#' @param n_mismatch Numeric. The maximum number of primer-template mismatches allowed
 #' @param random_sampling Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected
-#' @param random_sampling_seed Random number seed for random_sampling
-#' @param n_retidmax The maximum number of IDs collected from Entrez
+#' @param random_sampling_seed Numeric. Random number seed for random_sampling
+#' @param output_dir Character. Output directory name
 #' @param save_parameter Logical. If TRUE, parameters used in the analysis saved
 #' @param save_stat Logical. If TRUE, summary of the analysis saved
 #' @param overwrite_output_dir Logical. If TRUE, overwrite the contents of output directory.
@@ -19,11 +19,11 @@ doamp_auto <- function (search_query,
                         F_primer,
                         R_primer,
                         n_retmax = 20,
+                        n_retidmax = n_retmax * 10,
                         n_mismatch = 0,
-                        output_dir = "rDoAMP_Out",
                         random_sampling = TRUE,
                         random_sampling_seed = 1234,
-                        n_retidmax = n_retmax * 10,
+                        output_dir = "rDoAMP_Out",
                         save_parameter = TRUE,
                         save_stat = TRUE,
                         overwrite_output_dir = FALSE) {
@@ -33,7 +33,7 @@ doamp_auto <- function (search_query,
   time_start <- proc.time() # Measure elapsed time
   # Check and create output directory
   if(overwrite_output_dir) {
-    dir.create(output_dir, showWarnings = TRUE)
+    dir.create(output_dir, showWarnings = FALSE)
     if(length(list.files(sprintf("%s", output_dir))) > 0) {
       previous_files <- dir(path = output_dir, pattern = "*.*")
       file.remove(sprintf("%s/%s", output_dir, previous_files))
@@ -166,11 +166,11 @@ doamp_auto <- function (search_query,
 #' @title Automatically extract potential amplicons from target sequences
 #' @description \code{doamp_custom} Automatically extract potential amplicons from target sequences
 #' @importFrom utils write.table
-#' @param target_fasta FASTA file that contains target sequences
-#' @param F_primer Forward primer sequence
-#' @param R_primer Reverse primer sequence
-#' @param n_mismatch The maximum number of primer-template mismatches allowed
-#' @param output_dir Output directory name
+#' @param target_fasta Character. Path to a FASTA file that contains target sequences
+#' @param F_primer Character. Forward primer sequence
+#' @param R_primer Character. Reverse primer sequence
+#' @param n_mismatch Numeric. The maximum number of primer-template mismatches allowed
+#' @param output_dir Character. Output directory name
 #' @param save_parameter Logical. If TRUE, parameters used in the analysis saved
 #' @param save_stat Logical. If TRUE, summary of the analysis saved
 #' @param overwrite_output_dir Logical. If TRUE, overwrite the contents of output directory.
@@ -193,7 +193,7 @@ doamp_custom <- function (target_fasta,
 
   # Check and create output directory
   if(overwrite_output_dir) {
-    dir.create(output_dir, showWarnings = TRUE)
+    dir.create(output_dir, showWarnings = FALSE)
       if(length(list.files(sprintf("%s", output_dir))) > 0) {
         previous_files <- dir(path = output_dir, pattern = "*.*")
         file.remove(sprintf("%s/%s", output_dir, previous_files))

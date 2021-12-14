@@ -9,34 +9,34 @@ doamp_auto(
   F_primer,
   R_primer,
   n_retmax = 20,
+  n_retidmax = n_retmax * 10,
   n_mismatch = 0,
-  output_dir = "rDoAMP_Out",
   random_sampling = TRUE,
   random_sampling_seed = 1234,
-  n_retidmax = n_retmax * 10,
+  output_dir = "rDoAMP_Out",
   save_parameter = TRUE,
   save_stat = TRUE,
   overwrite_output_dir = FALSE
 )
 }
 \arguments{
-\item{search_query}{Search query for Entrez}
+\item{search_query}{Character. Search query for Entrez}
 
-\item{F_primer}{Forward primer sequence}
+\item{F_primer}{Character. Forward primer sequence}
 
-\item{R_primer}{Reverse primer sequence}
+\item{R_primer}{Character. Reverse primer sequence}
 
-\item{n_retmax}{The maximum number of sequences collected from Entrez}
+\item{n_retmax}{Numeric. The maximum number of sequences collected from Entrez}
 
-\item{n_mismatch}{The maximum number of primer-template mismatches allowed}
+\item{n_retidmax}{Numeric. The maximum number of IDs collected from Entrez. Default is 10. If random_sampling = TRUE, n_retidmax IDs will be collected and then n_retmax sequences will be downloaded.}
 
-\item{output_dir}{Output directory name}
+\item{n_mismatch}{Numeric. The maximum number of primer-template mismatches allowed}
 
 \item{random_sampling}{Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected}
 
-\item{random_sampling_seed}{Random number seed for random_sampling}
+\item{random_sampling_seed}{Numeric. Random number seed for random_sampling}
 
-\item{n_retidmax}{The maximum number of IDs collected from Entrez}
+\item{output_dir}{Character. Output directory name}
 
 \item{save_parameter}{Logical. If TRUE, parameters used in the analysis saved}
 
