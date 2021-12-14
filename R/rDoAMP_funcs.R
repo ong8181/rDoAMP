@@ -36,7 +36,7 @@ doamp_auto <- function (search_query,
     dir.create(output_dir, showWarnings = TRUE)
     if(length(list.files(sprintf("%s", output_dir))) > 0) {
       previous_files <- dir(path = output_dir, pattern = "*.*")
-      file.remove(previous_files)
+      file.remove(sprintf("%s/%s", output_dir, previous_files))
     }
   } else {
     if(dir.exists(output_dir)) {
@@ -201,7 +201,7 @@ doamp_custom <- function (target_fasta,
     dir.create(output_dir, showWarnings = TRUE)
       if(length(list.files(sprintf("%s", output_dir))) > 0) {
         previous_files <- dir(path = output_dir, pattern = "*.*")
-        file.remove(previous_files)
+        file.remove(sprintf("%s/%s", output_dir, previous_files))
       }
   } else {
     if(dir.exists(output_dir)) {
