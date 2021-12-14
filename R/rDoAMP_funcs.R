@@ -70,9 +70,13 @@ doamp_auto <- function (search_query,
   #-----------------------------------------------------------------#
   shell_command1 <- sprintf("seqkit seq -w 0 %s/entrez_fasta.fa > %s/download.fa",
                             output_dir, output_dir)
-  system(shell_command1)
-  # Delete a temporal file
-  system(sprintf("rm %s/entrez_fasta.fa", output_dir))
+  if (Sys.info()["sysname"] == "Windows") {
+    shell(shell_command1)
+    shell(sprintf("del %s/entrez_fasta.fa", output_dir))
+  } else {
+    system(shell_command1)
+    system(sprintf("rm %s/entrez_fasta.fa", output_dir))
+  }
 
   #-----------------------------------------------------------------#
   # Generate degenerate primer list
@@ -99,15 +103,15 @@ doamp_auto <- function (search_query,
                               output_dir,
                               n_mismatch,
                               output_dir, output_dir)
-    system(shell_command2)
-  } else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
+    if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
+  #} else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
     #-----------------------------------------------------------------#
-    shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
-                              F_primer, R_primer,
-                              output_dir, output_dir)
-    system(shell_command2)
+  #  shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
+  #                            F_primer, R_primer,
+  #                            output_dir, output_dir)
+  #  system(shell_command2)
   } else {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
@@ -116,7 +120,7 @@ doamp_auto <- function (search_query,
                               F_primer, R_primer,
                               n_mismatch,
                               output_dir, output_dir)
-    system(shell_command2)
+    if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
   }
 
   #-----------------------------------------------------------------#
@@ -140,11 +144,20 @@ doamp_auto <- function (search_query,
                 quote = FALSE, col.names = FALSE, row.names = FALSE)
   }
 
-  if (save_stat) {
-    system(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
-    system(sprintf("cat %s/stat.tsv", output_dir))
+  if (Sys.info()["sysname"] == "Windows") {
+    if (save_stat) {
+      shell(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
+      shell(sprintf("more %s/stat.tsv", output_dir))
+    } else {
+      shell(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    }
   } else {
-    system(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    if (save_stat) {
+      system(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
+      system(sprintf("cat %s/stat.tsv", output_dir))
+    } else {
+      system(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    }
   }
 
   # Generate output message
@@ -183,7 +196,13 @@ doamp_custom <- function (target_fasta,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = FALSE)
-    if(length(list.files(sprintf("%s/", output_dir))) > 0) system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
+    if(length(list.files(sprintf("%s/", output_dir))) > 0) {
+      if (Sys.info()["sysname"] == "Windows") {
+        shell(sprintf("del %s/*.*", output_dir)) # Clean files in output_dir
+      } else {
+        system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
+      }
+    }
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -192,16 +211,24 @@ doamp_custom <- function (target_fasta,
     }
   }
   # Copy target fasta to output_dir
-  system(sprintf("cp %s %s/custom_db0.fa", target_fasta, output_dir))
+  if (Sys.info()["sysname"] == "Windows") {
+    shell(sprintf("copy %s %s/custom_db0.fa", target_fasta, output_dir))
+  } else {
+    system(sprintf("cp %s %s/custom_db0.fa", target_fasta, output_dir))
+  }
 
   #-----------------------------------------------------------------#
   # Compile the sequence file using seqkit in Shell
   #-----------------------------------------------------------------#
   shell_command1 <- sprintf("seqkit seq -w 0 %s/custom_db0.fa > %s/custom_db.fa",
                             output_dir, output_dir)
-  system(shell_command1)
-  # Delete a temporal file
-  system(sprintf("rm %s/custom_db0.fa", output_dir))
+  if (Sys.info()["sysname"] == "Windows") {
+    shell(shell_command1)
+    shell(sprintf("del %s/custom_db0.fa", output_dir))
+  } else {
+    system(shell_command1)
+    system(sprintf("rm %s/custom_db0.fa", output_dir))
+  }
 
   #-----------------------------------------------------------------#
   # Generate degenerate primer list
@@ -228,15 +255,15 @@ doamp_custom <- function (target_fasta,
                               output_dir,
                               n_mismatch,
                               output_dir, output_dir)
-    system(shell_command2)
-  } else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
+    if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
+    #} else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
     #-----------------------------------------------------------------#
-    shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
-                              F_primer, R_primer,
-                              output_dir, output_dir)
-    system(shell_command2)
+    #shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
+    #                          F_primer, R_primer,
+    #                          output_dir, output_dir)
+    #system(shell_command2)
   } else {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
@@ -245,7 +272,7 @@ doamp_custom <- function (target_fasta,
                               F_primer, R_primer,
                               n_mismatch,
                               output_dir, output_dir)
-    system(shell_command2)
+    if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
   }
 
   #-----------------------------------------------------------------#
@@ -263,11 +290,20 @@ doamp_custom <- function (target_fasta,
                 quote = FALSE, col.names = FALSE, row.names = FALSE)
   }
 
-  if (save_stat) {
-    system(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
-    system(sprintf("cat %s/stat.tsv", output_dir))
+  if (Sys.info()["sysname"] == "Windows") {
+    if (save_stat) {
+      shell(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
+      shell(sprintf("more %s/stat.tsv", output_dir))
+    } else {
+      shell(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    }
   } else {
-    system(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    if (save_stat) {
+      system(sprintf("seqkit stats -T %s/*.fa > %s/stat.tsv", output_dir, output_dir))
+      system(sprintf("cat %s/stat.tsv", output_dir))
+    } else {
+      system(sprintf("seqkit stats -T %s/*.fa", output_dir))
+    }
   }
 
   # Generate output message
