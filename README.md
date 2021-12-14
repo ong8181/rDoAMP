@@ -8,6 +8,16 @@
 
 ## 事前にインストールする必要があるパッケージ
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
+  - インストール: https://bioinf.shenwei.me/seqkit/download/ から対応する OS の *.tar.gz ファイルをダウンロード
+    - macOS
+      1. `tar -zxvf seqkit_darwin_amd64.tar.gz` でファイルを解凍
+      2. `sudo cp seqkit /usr/local/bin` でファイルをコピー
+      3. `seqkit version` でバージョン確認
+    - Windows
+      1. seqkit_windows_*.exe.tar.gz を解凍
+      2. `seqkit.exe` を `C:\WINDOWS\system32` にコピー
+
+## 依存パッケージ
 - `rentrez` (https://github.com/ropensci/rentrez)
 
 ## インストール
@@ -38,7 +48,8 @@ data(primer_set)
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
            F_primer = primer_set$Animal12S_MiFish_U$forward,   # MiFish-U-F
            R_primer = primer_set$Animal12S_MiFish_U$reverse,   # MiFish-U-R
-           n_mismatch = 3)
+           n_mismatch = 3,
+           overwrite_output_dir = FALSE)
 ```
 
 #### 出力フォルダに保存されるファイル
@@ -138,6 +149,8 @@ R functions to extract amplicons from target sequences using a user-specified pr
 
 ## Prerequisites
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
+
+## Dependencies
 - `rentrez` (https://github.com/ropensci/rentrez)
 
 ## Installation
@@ -166,7 +179,8 @@ data(primer_set)
 doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
            F_primer = primer_set$Animal12S_MiFish_U$forward,   # MiFish-U-F
            R_primer = primer_set$Animal12S_MiFish_U$reverse,   # MiFish-U-R
-           n_mismatch = 3)
+           n_mismatch = 3,
+           overwrite_output_dir = FALSE)
 ```
 
 #### Output files
