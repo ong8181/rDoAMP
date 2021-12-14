@@ -34,17 +34,7 @@ doamp_auto <- function (search_query,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-    if (Sys.info()["sysname"] == "Windows") {
-      if(length(list.files(sprintf("%s", output_dir))) > 0) {
-        setwd(sprintf("%s", output_dir))
-        shell("del *.*") # Clean files in output_dir
-        setwd("..")
-      }
-    } else {
-      if(length(list.files(sprintf("%s/", output_dir))) > 0) {
-        system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
-      }
-    }
+    if(length(list.files(sprintf("%s", output_dir))) > 0) file.remove(sprintf("%s/*", output_dir))
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -81,12 +71,10 @@ doamp_auto <- function (search_query,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    setwd(sprintf("%s", output_dir))
-    shell("del entrez_fasta.fa"); setwd("..")
   } else {
     system(shell_command1)
-    system(sprintf("rm %s/entrez_fasta.fa", output_dir))
   }
+  file.remove(sprintf("%s/entrez_fasta.fa", output_dir))
 
   #-----------------------------------------------------------------#
   # Generate degenerate primer list
@@ -156,11 +144,11 @@ doamp_auto <- function (search_query,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      setwd(sprintf("%s", output_folder))
+      setwd(sprintf("%s", output_dir))
       shell("seqkit stats -T *.fa > stat.tsv")
       shell("more stat.tsv"); setwd("..")
     } else {
-      setwd(sprintf("%s", output_folder))
+      setwd(sprintf("%s", output_dir))
       shell("seqkit stats -T *.fa"); setwd("..")
     }
   } else {
@@ -208,17 +196,7 @@ doamp_custom <- function (target_fasta,
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
-    if (Sys.info()["sysname"] == "Windows") {
-      if(length(list.files(sprintf("%s", output_dir))) > 0) {
-        setwd(sprintf("%s", output_dir))
-        shell("del *.*") # Clean files in output_dir
-        setwd("..")
-      }
-    } else {
-      if(length(list.files(sprintf("%s/", output_dir))) > 0) {
-        system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
-      }
-    }
+      if(length(list.files(sprintf("%s", output_dir))) > 0) file.remove(sprintf("%s/*", output_dir))
   } else {
     if(dir.exists(output_dir)) {
       stop("Output directory already exists")
@@ -227,11 +205,7 @@ doamp_custom <- function (target_fasta,
     }
   }
   # Copy target fasta to output_dir
-  if (Sys.info()["sysname"] == "Windows") {
-    file.copy(sprintf("%s %s/custom_db0.fa", target_fasta, output_dir))
-  } else {
-    system(sprintf("cp %s %s/custom_db0.fa", target_fasta, output_dir))
-  }
+  file.copy(sprintf("%s %s/custom_db0.fa", target_fasta, output_dir))
 
   #-----------------------------------------------------------------#
   # Compile the sequence file using seqkit in Shell
@@ -240,12 +214,10 @@ doamp_custom <- function (target_fasta,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    setwd(sprintf("%s", output_dir))
-    shell("del custom_db0.fa"); setwd("..")
   } else {
     system(shell_command1)
-    system(sprintf("rm %s/custom_db0.fa", output_dir))
   }
+  file.remove(sprintf("%s/custom_db0.fa", output_dir))
 
   #-----------------------------------------------------------------#
   # Generate degenerate primer list
@@ -309,11 +281,11 @@ doamp_custom <- function (target_fasta,
 
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
-      setwd(sprintf("%s", output_folder))
+      setwd(sprintf("%s", output_dir))
       shell("seqkit stats -T *.fa > stat.tsv")
       shell("more stat.tsv"); setwd("..")
     } else {
-      setwd(sprintf("%s", output_folder))
+      setwd(sprintf("%s", output_dir))
       shell("seqkit stats -T *.fa"); setwd("..")
     }
   } else {
