@@ -149,6 +149,8 @@ R functions to extract amplicons from target sequences using a user-specified pr
 
 ## Prerequisites
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
+  - Installation: https://bioinf.shenwei.me/seqkit/download/ 
+
 
 ## Dependencies
 - `rentrez` (https://github.com/ropensci/rentrez)
