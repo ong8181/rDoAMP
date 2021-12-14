@@ -196,6 +196,9 @@ doamp_custom <- function (target_fasta,
     dir.create(output_dir, showWarnings = FALSE)
       if(length(list.files(sprintf("%s", output_dir))) > 0) {
         previous_files <- dir(path = output_dir, pattern = "*.*")
+        if(target_fasta %in% sprintf("%s/%s", output_dir, previous_files)) {
+          stop("Your target FASTA file is in a output directory that will be overwritten! Change the FASTA file location.")
+        }
         file.remove(sprintf("%s/%s", output_dir, previous_files))
       }
   } else {
