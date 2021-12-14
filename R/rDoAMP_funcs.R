@@ -145,11 +145,11 @@ doamp_auto <- function (search_query,
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
       setwd(sprintf("%s", output_dir))
-      shell("seqkit stats -T *.fa > stat.tsv")
+      shell("seqkit stats -T amplified.fa download.fa > stat.tsv")
       shell("more stat.tsv"); setwd("..")
     } else {
       setwd(sprintf("%s", output_dir))
-      shell("seqkit stats -T *.fa"); setwd("..")
+      shell("seqkit stats -T amplified.fa download.fa"); setwd("..")
     }
   } else {
     if (save_stat) {
@@ -282,11 +282,11 @@ doamp_custom <- function (target_fasta,
   if (Sys.info()["sysname"] == "Windows") {
     if (save_stat) {
       setwd(sprintf("%s", output_dir))
-      shell("seqkit stats -T *.fa > stat.tsv")
+      shell("seqkit stats -T amplified.fa custom_db.fa > stat.tsv")
       shell("more stat.tsv"); setwd("..")
     } else {
       setwd(sprintf("%s", output_dir))
-      shell("seqkit stats -T *.fa"); setwd("..")
+      shell("seqkit stats -T amplified.fa custom_db.fa"); setwd("..")
     }
   } else {
     if (save_stat) {
