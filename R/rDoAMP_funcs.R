@@ -35,7 +35,7 @@ doamp_auto <- function (search_query,
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = FALSE)
     if (Sys.info()["sysname"] == "Windows") {
-      if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*", output_dir)) # Clean files in output_dir
+      if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*.*", output_dir)) # Clean files in output_dir
     } else {
       if(length(list.files(sprintf("%s/", output_dir))) > 0) system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
     }
@@ -200,7 +200,7 @@ doamp_custom <- function (target_fasta,
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = FALSE)
     if (Sys.info()["sysname"] == "Windows") {
-      if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*", output_dir)) # Clean files in output_dir
+      if(length(list.files(sprintf("%s", output_dir))) > 0) system(sprintf("rm %s¥*.*", output_dir)) # Clean files in output_dir
     } else {
       if(length(list.files(sprintf("%s/", output_dir))) > 0) system(sprintf("rm %s/*", output_dir)) # Clean files in output_dir
     }
