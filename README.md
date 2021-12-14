@@ -54,8 +54,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 ```
 
 #### 出力フォルダに保存されるファイル
-- `download.fa` (`doamp_auto()` 使用時) : 指定した検索ワードによりダウンロードされた配列データ
-- `custom_db.fa` (`doamp_custom()` 使用時) : ユーザーが指定した増幅するかどうか調べてたい配列データ
+- `download.fa` : 指定した検索ワードによりダウンロードされた配列データ
 - `amplified.fa`: プライマーとマッチした配列
 - `parameter_list.txt`: 解析に使用したパラメータリスト
 - `expanded_primer_list.tsv` (縮重プライマー使用時) : あり得るプライマーの組み合わせリスト 
@@ -185,8 +184,7 @@ doamp_auto("Trachurus AND mitochondrion AND 1000:20000[SLEN]",
 ```
 
 #### Output files
-- `download.fa` (only for `doamp_auto()`) : Downloaded sequence data using a user-specified search query
-- `custom_db.fa` (only for `doamp_custom()`) : User-specified sequence data to be checked by `seqkit amplicon`
+- `download.fa` : Downloaded sequence data using a user-specified search query
 - `amplified.fa`: Sequence data that could be amplified by a specified primer set
 - `parameter_list.txt`: Parameter list used in the analysis
 - `expanded_primer_list.tsv` (only for degenerated primers) : A list of primer combinations
