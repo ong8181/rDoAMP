@@ -211,7 +211,7 @@ doamp_custom <- function (target_fasta,
     }
   }
   # Copy target fasta to output_dir
-  file.copy(sprintf("%s %s/custom_db0.fa", target_fasta, output_dir))
+  file.copy(target_fasta, sprintf("%s/custom_db0.fa", output_dir))
 
   #-----------------------------------------------------------------#
   # Compile the sequence file using seqkit in Shell
