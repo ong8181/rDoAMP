@@ -75,7 +75,7 @@ doamp_auto <- function (search_query,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    shell(sprintf("del %s¥entrez_fasta.fa", output_dir))
+    #shell(sprintf("del %s¥entrez_fasta.fa", output_dir))
   } else {
     system(shell_command1)
     system(sprintf("rm %s/entrez_fasta.fa", output_dir))
@@ -225,7 +225,7 @@ doamp_custom <- function (target_fasta,
                             output_dir, output_dir)
   if (Sys.info()["sysname"] == "Windows") {
     shell(shell_command1)
-    shell(sprintf("del %s¥custom_db0.fa", output_dir))
+    #shell(sprintf("del %s¥custom_db0.fa", output_dir))
   } else {
     system(shell_command1)
     system(sprintf("rm %s/custom_db0.fa", output_dir))
