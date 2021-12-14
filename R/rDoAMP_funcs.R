@@ -105,14 +105,6 @@ doamp_auto <- function (search_query,
                               n_mismatch,
                               output_dir, output_dir)
     if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
-  #} else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
-    #-----------------------------------------------------------------#
-    # Extract the barcoding region using seqkit amplicon
-    #-----------------------------------------------------------------#
-  #  shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
-  #                            F_primer, R_primer,
-  #                            output_dir, output_dir)
-  #  system(shell_command2)
   } else {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
@@ -196,6 +188,9 @@ doamp_custom <- function (target_fasta,
   # Creat output directory
   #-----------------------------------------------------------------#
   time_start <- proc.time() # Measure elapsed time
+  # Check target.fasta file
+  if(!file.exists(target_fasta)) stop("Your FASTA file does not exit!")
+
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = TRUE)
@@ -251,14 +246,6 @@ doamp_custom <- function (target_fasta,
                               n_mismatch,
                               output_dir, output_dir)
     if (Sys.info()["sysname"] == "Windows") shell(shell_command2) else system(shell_command2)
-    #} else if ((deg_in_F | deg_in_R) & (n_mismatch == 0)) {
-    #-----------------------------------------------------------------#
-    # Extract the barcoding region using seqkit amplicon
-    #-----------------------------------------------------------------#
-    #shell_command2 <- sprintf("seqkit amplicon -F %s -R %s -w 0 %s/custom_db.fa > %s/amplified.fa",
-    #                          F_primer, R_primer,
-    #                          output_dir, output_dir)
-    #system(shell_command2)
   } else {
     #-----------------------------------------------------------------#
     # Extract the barcoding region using seqkit amplicon
