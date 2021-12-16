@@ -2,8 +2,8 @@
 #' @description \code{doamp_auto} Automatically download sequences and extract potential amplicons
 #' @importFrom utils write.table
 #' @param search_query Character. Search query for Entrez
-#' @param F_primer Character. Forward primer sequence
-#' @param R_primer Character. Reverse primer sequence
+#' @param F_primer Character. Forward primer sequence. Degenerate base allowed.
+#' @param R_primer Character. Reverse primer sequence. Degenerate base allowed.
 #' @param n_retmax Numeric. The maximum number of sequences collected from Entrez
 #' @param n_retidmax Numeric. The maximum number of IDs collected from Entrez. Default is 10. If random_sampling = TRUE, n_retidmax IDs will be collected and then n_retmax sequences will be downloaded.
 #' @param n_mismatch Numeric. The maximum number of primer-template mismatches allowed
@@ -167,8 +167,8 @@ doamp_auto <- function (search_query,
 #' @description \code{doamp_custom} Automatically extract potential amplicons from target sequences
 #' @importFrom utils write.table
 #' @param target_fasta Character. Path to a FASTA file that contains target sequences
-#' @param F_primer Character. Forward primer sequence
-#' @param R_primer Character. Reverse primer sequence
+#' @param F_primer Character. Forward primer sequence. Degenerate base allowed.
+#' @param R_primer Character. Reverse primer sequence. Degenerate base allowed.
 #' @param n_mismatch Numeric. The maximum number of primer-template mismatches allowed
 #' @param output_dir Character. Output directory name
 #' @param save_parameter Logical. If TRUE, parameters used in the analysis saved
