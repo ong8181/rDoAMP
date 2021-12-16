@@ -1,10 +1,12 @@
 
-# rDoAMP v0.1.3
+# rDoAMP v0.2.0
 
 <!-- badges: start -->
 <!-- badges: end -->
 
 興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするためのパッケージです。`rentrez` を使って検索ワードにヒットした配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit amplicon` を用いて指定したプライマーで増幅しうるかどうかチェックします。
+
+macOS と Windows で動作確認しています。
 
 ## 事前にインストールする必要があるパッケージ
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
@@ -87,7 +89,7 @@ doamp_auto(search_query,
 - `search_query` : データベースの検索ワード (例. "Trachurus AND mitochondrion AND 1000:20000[SLEN]" など)
 - `F_primer` : フォワードプライマー配列
 - `R_primer`: リバースプライマー配列
-- `n_retmax`: 取得する配列の最大数 (v0.1.1 では大きすぎる配列数はエラーとなります)
+- `n_retmax`: 取得する配列の最大数。今の所、大きい値（だいたい > 500）を指定するとエラーとなります。
 - `n_retidmax`: 取得する配列 ID の数。デフォルトでは取得予定の配列数の10倍の ID を取得し、その中からランダムに配列をダウンロード。ダウンロードする配列の多様性を担保するためのオプション。
 - `n_mismatch` : 許容するプライマー - 鋳型間のミスマッチの数
 - `random_sampling`: 多めの配列 ID を取得して、その中からランダムに配列を取得するかどうか
@@ -146,6 +148,8 @@ doamp_custom("YOUR_FASTA.fasta",
 R functions to extract amplicons from target sequences using a user-specified primer set. - DOes my primer set AMPlify my targets? -
 
 (Convenient wrapper functions for `seqkit amplicon`)
+
+Executable in macOS and Windows.
 
 ## Prerequisites
 - `seqkit` (https://bioinf.shenwei.me/seqkit/)
@@ -219,7 +223,7 @@ doamp_auto(search_query,
 - `search_query` : Search query for Entrez (e.g., "Trachurus AND mitochondrion AND 1000:20000[SLEN]")
 - `F_primer` : Forward primer sequence
 - `R_primer`: Reverse primer sequence
-- `n_retmax`: The maximum number of sequences retrieved from Entrez
+- `n_retmax`: The maximum number of sequences retrieved from Entrez. Current version does not accept a large number (e.g., > 500).
 - `n_retidmax`: The maximum number of IDs collected from Entrez. Among the IDs, `n_retmax` sequences are retrieved. This option is set to increase the diversity of sequences retrieved.
 - `n_mismatch` : The maximum number of primer-template mismatches allowed
 - `random_sampling`: Logical. If TURE, n_retidmax IDs collected, and then n_retmax sequences are randomly collected
