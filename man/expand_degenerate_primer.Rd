@@ -2,7 +2,7 @@
 % Please edit documentation in R/expand_deg_primer.R
 \name{expand_degenerate_primer}
 \alias{expand_degenerate_primer}
-\title{Automatically expand degenerated primer}
+\title{Automatically expand a primer sequence that contains degenerate bases}
 \usage{
 expand_degenerate_primer(input_primer = "ATGCN")
 }
@@ -13,7 +13,7 @@ expand_degenerate_primer(input_primer = "ATGCN")
 primer_list_onerow Expanded primer list
 }
 \description{
-\code{expand_degenerate_primer} Automatically expand degenerated primer
+\code{expand_degenerate_primer} Automatically expand a primer sequence that contains degenerate bases
 }
 \examples{
 # expand_degenerate_primer("ATGCN")

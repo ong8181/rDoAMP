@@ -1,5 +1,5 @@
-#' @title Automatically expand degenerated primer
-#' @description \code{expand_degenerate_primer} Automatically expand degenerated primer
+#' @title Automatically expand a primer sequence that contains degenerate bases
+#' @description \code{expand_degenerate_primer} Automatically expand a primer sequence that contains degenerate bases
 #' @param input_primer Primer sequences
 #' @return primer_list_onerow Expanded primer list
 #' @export

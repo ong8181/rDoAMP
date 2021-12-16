@@ -22,9 +22,9 @@ doamp_auto(
 \arguments{
 \item{search_query}{Character. Search query for Entrez}
 
-\item{F_primer}{Character. Forward primer sequence}
+\item{F_primer}{Character. Forward primer sequence. Degenerate base allowed.}
 
-\item{R_primer}{Character. Reverse primer sequence}
+\item{R_primer}{Character. Reverse primer sequence. Degenerate base allowed.}
 
 \item{n_retmax}{Numeric. The maximum number of sequences collected from Entrez}
 

@@ -18,9 +18,9 @@ doamp_custom(
 \arguments{
 \item{target_fasta}{Character. Path to a FASTA file that contains target sequences}
 
-\item{F_primer}{Character. Forward primer sequence}
+\item{F_primer}{Character. Forward primer sequence. Degenerate base allowed.}
 
-\item{R_primer}{Character. Reverse primer sequence}
+\item{R_primer}{Character. Reverse primer sequence. Degenerate base allowed.}
 
 \item{n_mismatch}{Numeric. The maximum number of primer-template mismatches allowed}
 
