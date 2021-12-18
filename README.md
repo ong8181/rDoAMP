@@ -1,5 +1,5 @@
 
-# rDoAMP v0.2.0
+# rDoAMP v0.2.1 dev
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -29,7 +29,7 @@ macOS と Windows で動作確認しています。
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ong8181/rDoAMP")
+devtools::install_github("ong8181/rDoAMP", ref = "dev")
 ```
 
 ## クイックスタート
