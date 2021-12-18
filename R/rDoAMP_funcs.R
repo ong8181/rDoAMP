@@ -49,7 +49,7 @@ doamp_auto <- function (search_query,
   # Search data in Entrez
   #-----------------------------------------------------------------#
   if (!random_sampling) n_retidmax <- n_retmax
-  rentrez_search <- rentrez::entrez_search(db = "nucleotide", term = search_query, retmax = n_retidmax)
+  rentrez_search <- rentrez::entrez_search(db = "nucleotide", term = search_query, retmax = n_retidmax, use_history = TRUE)
   # Random sampling from rentrez_search w/ n_retidmax IDs
   if (random_sampling & length(rentrez_search$ids) >= n_retmax) {
     set.seed(random_sampling_seed)
