@@ -86,7 +86,7 @@ doamp_auto <- function (search_query,
   deg_in_F <- !all(strsplit(F_primer, split = NULL)[[1]] %in% c("A", "T", "G", "C"))
   deg_in_R <- !all(strsplit(R_primer, split = NULL)[[1]] %in% c("A", "T", "G", "C"))
 
-  if((deg_in_F | deg_in_R) & (n_mismatch > 0)) {
+  if((deg_in_F | deg_in_R)) {
     # Expand degenerate primers
     if(deg_in_F) expanded_F_primer <- expand_degenerate_primer(F_primer) else expanded_F_primer <- F_primer
     if(deg_in_R) expanded_R_primer <- expand_degenerate_primer(R_primer) else expanded_R_primer <- R_primer
@@ -233,7 +233,7 @@ doamp_custom <- function (target_fasta,
   deg_in_F <- !all(strsplit(F_primer, split = NULL)[[1]] %in% c("A", "T", "G", "C"))
   deg_in_R <- !all(strsplit(R_primer, split = NULL)[[1]] %in% c("A", "T", "G", "C"))
 
-  if((deg_in_F | deg_in_R) & (n_mismatch > 0)){
+  if((deg_in_F | deg_in_R)){
     # Expand degenerate primers
     if(deg_in_F) expanded_F_primer <- expand_degenerate_primer(F_primer) else expanded_F_primer <- F_primer
     if(deg_in_R) expanded_R_primer <- expand_degenerate_primer(R_primer) else expanded_R_primer <- R_primer
