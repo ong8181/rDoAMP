@@ -4,7 +4,7 @@ Title: Extracting amplicons from target sequences using a user-specified primer 
 Version: 0.2.1
 Author: Masayuki Ushio
 Maintainer: Masayuki Ushio <ong8181@gmail.com>
-Description: rDoAMP provides wrapper functions for "seqkit amplicon."
+Description: Convenient wrapper functions for "seqkit amplicon."
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

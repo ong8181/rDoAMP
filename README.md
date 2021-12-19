@@ -4,7 +4,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするためのパッケージです。`rentrez` を使って検索ワードにヒットした配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit amplicon` を用いて指定したプライマーで増幅しうるかどうかチェックします。
+興味ある配列データ（特定の分類群の配列など）が指定したプライマーで増幅しうるかどうかをチェックするためのパッケージです。`rentrez` を使って検索ワードにヒットした配列を Entrez (https://www.ncbi.nlm.nih.gov/Web/Search/entrezfs.html) からダウンロードし、`seqkit amplicon` で指定したプライマーで増幅しうるかどうかチェックします。
 
 macOS と Windows で動作確認しています。
 
