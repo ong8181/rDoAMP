@@ -30,7 +30,7 @@ doamp_auto <- function (search_query,
   #-----------------------------------------------------------------#
   # Create output directory
   #-----------------------------------------------------------------#
-  time_start <- proc.time() # Measure elapsed time
+  time_start <- proc.time()
   # Check and create output directory
   if(overwrite_output_dir) {
     dir.create(output_dir, showWarnings = FALSE)
@@ -187,7 +187,7 @@ doamp_custom <- function (target_fasta,
   #-----------------------------------------------------------------#
   # Creat output directory
   #-----------------------------------------------------------------#
-  time_start <- proc.time() # Measure elapsed time
+  time_start <- proc.time()
 
   # Check target.fasta file
   if(!file.exists(target_fasta)) stop("Your FASTA file does not exit!")
