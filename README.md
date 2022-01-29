@@ -1,5 +1,6 @@
 
 # rDoAMP v0.2.2
+[![DOI](https://zenodo.org/badge/437441432.svg)](https://zenodo.org/badge/latestdoi/437441432)
 
 <!-- badges: start -->
 <!-- badges: end -->
