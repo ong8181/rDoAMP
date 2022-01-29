@@ -1,5 +1,5 @@
 
-# rDoAMP v0.2.1
+# rDoAMP v0.2.2
 
 <!-- badges: start -->
 <!-- badges: end -->
