@@ -3,4 +3,5 @@
 export(doamp_auto)
 export(doamp_custom)
 export(expand_degenerate_primer)
+export(seq_hist)
 importFrom(utils,write.table)
