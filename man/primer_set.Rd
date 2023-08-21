@@ -5,7 +5,7 @@
 \alias{primer_set}
 \title{A list of primer sets}
 \format{
-An object of class \code{list} of length 21.
+An object of class \code{list} of length 22.
 }
 \usage{
 primer_set
